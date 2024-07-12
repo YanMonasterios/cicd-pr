@@ -1,0 +1,60 @@
+name: SayHello
+
+on: 
+  push:
+    branches:
+      - main
+      - developer
+      - release
+      
+  pull_request:
+    branches:
+      - main
+      - developer
+      - release
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Recibir PR
+        uses: actions/checkout@v2
+      - name: Say Something
+        run: echo "finalizar welcome"
+
+  hello-brach:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Referencias de branch
+        uses: actions/checkout@v2
+        
+      - name: branch main
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: echo "finalizacion de main"
+
+      - name: branch develop
+        if: ${{ github.ref == 'refs/heads/develop' }}
+        run: echo "finalizacion de developer"
+
+      - name: branch release
+        if: ${{ github.ref == 'refs/heads/release' }}
+        run: echo "finalizacion release"
+
+  PR:  
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mandar PR
+        uses: actions/checkout@v2
+        
+      - name: Verificacion Branch + PR
+        if: github.event_name == 'pull_request'
+        run: echo "Finalizacion de Action"
+      
+  
+      
+
+
+
+
+      
+      
