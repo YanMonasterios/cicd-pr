@@ -1,1 +1,1 @@
-# cicd-pr ✌ todo exito👍
+# cicd-pr exito👍
