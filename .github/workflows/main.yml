@@ -4,13 +4,13 @@ on:
   push:
     branches:
       - main
-      - developer
+      - develop
       - release
       
   pull_request:
     branches:
       - main
-      - developer
+      - develop
       - release
 jobs:
   welcome:
@@ -34,7 +34,7 @@ jobs:
 
       - name: branch develop
         if: ${{ github.ref == 'refs/heads/develop' }}
-        run: echo "finalizacion de developer"
+        run: echo "finalizacion de develop"
 
       - name: branch release
         if: ${{ github.ref == 'refs/heads/release' }}
